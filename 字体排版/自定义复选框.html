@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        label:before{
+            content:'';
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background: #aaa;
+            
+        }
+        input[type='checkbox']{
+          display: none
+        }
+        input:checked + label:before{
+            text-indent: .2em;
+            content:'\2713';
+            background: yellowgreen;
+            line-height: .7em;
+        }
+    </style>
+</head>
+<body>
+    
+        <input type="checkbox" name="" id="checkbox">
+        <label for="checkbox"></label>
+    <span>select</span>
+</body>
+</html>
