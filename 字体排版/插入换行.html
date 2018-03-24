@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        dt,dd{
+            display: inline;
+            margin: 0
+        }
+        dd + dt:before{
+            content: '\A';
+            white-space: pre;
+        }
+        dd + dd:before{
+            content: ', ';
+            font-weight: normal
+        }
+        dd{
+            font-weight: bold
+        }
+    </style>
+</head>
+<body>
+    <dl>
+        <dt>name:</dt>
+        <dd>enhezzz</dd>
+        <dt>phone:</dt>
+        <dd>131</dd>
+        <dd>134</dd>
+        <dt>email:</dt>
+        <dd>11598@</dd>
+        <dd>134@</dd>
+    </dl>
+</body>
+</html>

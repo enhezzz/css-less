@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .span1{
+            font-size: 50px;
+            background: #ee10f3;
+            color: white;
+            text-shadow: 1px 1px black,1px -1px black,-1px 1px black,-1px -1px black
+        }
+        .span2{
+            font-size: 50px;
+            background: #ee10f3;
+            color: white;
+            /* 模糊叠加以加深颜色对比，这个1px是shadow外围过渡像素 */
+            text-shadow: 0 0 1px black,0 0 1px black,0 0 1px  black,0 0 1px black
+        }
+        .blur{
+            color: white;
+            background: #203;
+            transition:filter 1s;
+        }
+        .blur:hover{
+            filter: blur(.1em)
+        }
+        .up{
+            font-size: 50px;
+            color: white;
+            background: hsl(0, 50%, 45%);
+            text-shadow: 1px 1px black,2px 2px black,3px 3px black,4px 4px black,5px 5px black,
+            6px 6px black,7px 7px black
+        }
+    </style>
+</head>
+<body>
+    <span class="span1">span1</span>
+    <span class="span2">span2</span>
+    <a class="blur">hello</a>
+    <a class="up">up</a>
+</body>
+</html>
