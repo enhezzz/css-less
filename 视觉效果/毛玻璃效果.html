@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.-15px">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{
+            height: 100%;
+        }
+        body{
+            background: url(./img/1.jpg) 0/cover fixed
+        }
+        .main{
+            width: 400px;
+            height: 300px;
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .main:before{
+            content:'';
+            position: absolute;
+            /* 下面都改为0，然后去掉magin也ok */
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            /* color用作fallback */
+            background: rgba(0, 0, 0, .4) url(./img/1.jpg)  0/cover fixed;
+            filter: blur(15px);
+            z-index: -1;
+            margin: -15px
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        毛玻璃效果
+    </div>
+</body>
+</html>
