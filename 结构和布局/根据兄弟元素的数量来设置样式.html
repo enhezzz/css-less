@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+     *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+        html,body{
+            height: 100%;
+        }
+        div{
+            background: linear-gradient(#6523f3,#526733);
+            float: left;
+            border: 1px solid rgba(189, 176, 24, .4)
+        }
+        div:first-child:nth-last-child(4),
+        div:first-child:nth-last-child(4) ~ div{
+            width: 25%;
+            height: 100%;
+        }
+        div:first-child:nth-last-child(5),
+        div:first-child:nth-last-child(5) ~ div{
+            width: 20%;
+            height: 100%
+        }
+    </style>
+</head>
+<body>
+    <!-- 增加到五个查看效果 -->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <!-- <div></div> -->
+</body>
+</html>
