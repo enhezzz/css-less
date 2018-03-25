@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box
+        }
+        .img-slider{
+            margin: 100px auto;
+            width: 200px;
+            height: 230px;
+            position: relative;
+        }
+        .after{
+            width: 100%;
+            display: block;
+        }
+        .before{
+            position: absolute;
+            top: 0;
+            bottom: 6px;
+            left: 0;
+            width:50%;  
+            overflow: hidden;
+            resize: horizontal;
+            max-width: 100%;
+            filter: blur(1px);
+            /* margin: -3px */
+        }
+        .before:before{
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: linear-gradient(-45deg,white 50%,transparent 0);
+            position: absolute;
+            padding: 2px;
+            right: 0;
+            bottom: 0;
+            background-clip: content-box
+        }
+        .before > img{
+            display: block;
+            width: 200px;
+            height: 223px;
+        }
+    </style>
+</head>
+<body>
+    <div class="img-slider">
+        <div class="before">
+            <img src="./img/1.jpg" alt="">
+        </div>
+        <img src="./img/1.jpg" alt="" class="after">
+    </div>
+</body>
+</html>

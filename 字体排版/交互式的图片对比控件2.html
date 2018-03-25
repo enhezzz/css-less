@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box
+        }
+        .img-slider{
+            margin: 100px auto;
+            width: 200px;
+            height: 230px;
+            position: relative;
+        }
+        .after{
+            width: 100%;
+            display: block;
+        }
+        .before{
+            position: absolute;
+            top: 0;
+            bottom: 6px;
+            left: 0;
+            width:50%;  
+            overflow: hidden;
+            /* resize: horizontal; */
+            max-width: 100%;
+            filter: blur(1px);
+            /* margin: -3px */
+        }
+        
+        .before > img{
+            display: block;
+            width: 200px;
+            height: 223px;
+        }
+        .range{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .range>input[type='range']{
+            width: 50%;
+            margin: 0 auto;
+            display: block;
+            transform: scale(2)
+        }
+        /* img{
+            user-select: none
+        } */
+    </style>
+</head>
+<body>
+    <div class="img-slider">
+        <div class="before">
+            <img src="./img/1.jpg" alt="">
+        </div>
+        <img src="./img/1.jpg" alt="" class="after">
+        <div class="range">
+            
+            <input type="range">
+        </div>
+    </div>
+</body>
+<script>
+    var ranger = document.querySelector('input[type="range"]');
+    var beforer = document.querySelector('.before');
+    ranger.oninput = function(){
+        beforer.style.width = this.value + '%';
+        console.log(this.value)
+    }
+
+</script>
+</html>
