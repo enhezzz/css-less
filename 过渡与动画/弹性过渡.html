@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        span{
+            margin: 10px 0;
+            display: block;
+            width: 100px;
+            height: 100px;
+            background: rgba(230, 210, 13, .3);
+            position: relative;
+        }
+        input[type='text']:not(:focus) + span{
+            transform: scale(0)
+        }
+        input:focus + span{
+           
+            animation: 1s alert;
+        }
+        span:before{
+            content: '';
+            display: inline-block;
+           border-bottom: 10px solid rgba(230, 210, 13, .3);
+           border-top: 10px solid transparent;
+           border-left: 10px solid transparent;
+           border-right: 10px solid transparent;
+            width: 0;
+            height: 0;
+            
+            
+            position: absolute;
+            top: -20px;
+            left: 15px
+           
+        }
+        @keyframes alert {
+            from{transform: scale(0)}
+            70%{transform: scale(1.2)}
+            to{transform: scale(1);animation-timing-function: cubic-bezier(0.25, 0.1, 0.3, 1.5)}
+        }
+    </style>
+</head>
+<body>
+    <input type="text">
+    <span>this is some tips...</span>
+</body>
+</html>

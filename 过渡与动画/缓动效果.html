@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+        .ball{
+            background: rgba(0, 0, 0, .5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            animation: bounce 6s ease-in
+        }
+        @keyframes bounce{
+            60%,80%,to{
+                transform: translateY(400px);
+                animation-timing-function: ease-out
+            }
+            70%{
+                transform: translateY(300px)
+            }
+            90%{
+                transform: translateY(360px)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ball">
+
+    </div>
+</body>
+
+</html>

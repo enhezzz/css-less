@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 0;
+            /* animation: 5s type steps(12); */
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: .1em solid transparent;
+            animation: 4s, 1s infinite;
+            font-family: monospace
+        }
+
+        @keyframes type {
+            from {
+                width: 0
+            }
+
+        }
+
+        @keyframes cursor {
+            50% {
+                border-color: currentColor
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="typer">
+        aaaaaaaaaaasdsadsadasd
+    </div>
+    <div class="typer">
+        sssssssssssadasdasdasdasda
+    </div>
+    <div class="typer">
+        ddddddddddddasdasdadda
+    </div>
+    <script>
+        var typers = document.querySelectorAll('.typer');
+        var beforer = null;
+        var seconds = 0;
+        typers.forEach(function (ele, index) {
+
+            if (!index) {
+                beforer = ele;
+                ele.style.animationName = 'type,cursor'
+                var ch = ele.textContent.trim().length;
+                console.log(ch)
+                ele.style.width = ch + 'ch';
+                seconds = ch * 0.2;
+                ele.style.animationTimingFunction = 'steps(' + ch + '),steps(1)';
+                ele.style.animationDuration = seconds + 's,1s';
+            }
+
+            if (index) {
+                var ch = ele.textContent.trim().length;
+                setTimeout(() => {
+                    beforer.style.animationIterationCount = 0;
+                    beforer = ele;
+                    ele.style.animationName = 'type,cursor';
+
+                    console.log(ch)
+                    ele.style.width = ch + 'ch';
+                    ele.style.animationTimingFunction = 'steps(' + ch + '),steps(1)';
+                    ele.style.animationDuration = ch*0.2 + 's,1s';
+                }, seconds * 1000);
+                seconds = seconds + ch*0.2;
+            }
+
+
+        })
+        // var ch = typer.textContent.trim().length;
+        // console.log(typer.textContent)
+        // typer.style.width = ch + 'ch';
+        // typer.style.animationTimingFunction = 'steps('+ ch + '),steps(1)';
+    </script>
+</body>
+
+</html>
