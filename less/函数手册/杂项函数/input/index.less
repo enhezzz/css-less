@@ -1,0 +1,42 @@
+// div{
+//     color: color("#aaa");
+//     background-size: image-size('1.jpg');
+//     // background-image: data-uri("1.jpg");
+// }
+
+// .mixin(@value) when (ispixel(@value)) {width: @value}
+// .mixin(@value) when not(default())    {padding: (@value / 5)}
+
+// div-1 {
+//   .mixin(100px);
+// }
+
+// div-2 {
+//   /* ... */
+//   .mixin(100%);
+// }
+
+
+// .x {
+//     .m(red)                                    {case-1: darkred}
+//     .m(blue)                                   {case-2: darkblue}
+//     .m(@x) when (iscolor(@x)) and (default())  {default-color: @x}
+//     .m('foo')                                  {case-1: I am 'foo'}
+//     .m('bar')                                  {case-2: I am 'bar'}
+//     .m(@x) when (isstring(@x)) and (default()) {default-string: and I am the default}
+  
+//     &-blue  {.m(blue)}
+//     &-green {.m(green)}
+//     &-foo   {.m('foo')}
+//     &-baz   {.m('baz')}
+//   }
+
+
+//   div {
+//     foo: default();
+//     bar: default(42);
+//   }
+
+  div {
+    background-image: svg-gradient(to right, red, green 30%, blue);
+  }
