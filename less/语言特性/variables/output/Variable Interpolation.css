@@ -1,0 +1,19 @@
+.banner {
+  font-weight: bold;
+  line-height: 40px;
+  margin: 0 auto;
+}
+body {
+  color: #444;
+  background: url("../img/white-sand.png");
+}
+.widget {
+  color: #0ee;
+  background-color: #999;
+}
+.class {
+  one: 1;
+}
+.class .brass {
+  three: 3;
+}

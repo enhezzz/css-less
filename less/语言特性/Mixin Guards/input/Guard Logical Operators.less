@@ -1,0 +1,6 @@
+.mixin (@a) when (isnumber(@a)) and (@a > 0) { color: rgb(197, 102, 102)}
+.mixin (@a) when (@a > 10), (@a < -10) { color: pink }
+.mixin (@b) when not (@b > 0) { color: yellow }
+div{
+    .mixin(0)
+}

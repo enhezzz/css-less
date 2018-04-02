@@ -1,0 +1,59 @@
+// @detached-ruleset: {
+//     caller-variable: @caller-variable; // variable is undefined here
+//     .caller-mixin(); // mixin is undefined here
+//   };
+  
+//   selector {
+//     // use detached ruleset
+//     @detached-ruleset(); 
+  
+//     // define variable and mixin needed inside the detached ruleset
+//     @caller-variable: value;
+//     .caller-mixin() {
+//       variable: declaration;
+//     }
+//   }
+
+// @variable: global;
+// @detached-ruleset: {
+//   // will use global variable, because it is accessible
+//   // from detached-ruleset definition
+//   variable: @variable; 
+// };
+
+// selector {
+//   @detached-ruleset();
+//   @variable: value; // variable defined in caller - will be ignored
+// }
+
+// @detached-1: { scope-detached: @one @two; };
+// .one {
+//   @one: visible;
+//   .two {
+//     @detached-2: @detached-1; // copying/renaming ruleset 
+//     @two: visible; // ruleset can not see this variable
+//     @one: one
+//   }
+// }
+
+// .use-place {
+//   .one > .two; 
+//   @detached-2();
+// }
+
+
+#space {
+    .importer-1() {
+      @detached: { scope-detached: @variable; }; // define detached ruleset
+    }
+  }
+  
+  .importer-2() {
+    @variable: value; // unlocked detached ruleset CAN see this variable
+    #space > .importer-1(); // unlock/import detached ruleset
+  }
+  
+  .use-place {
+    .importer-2(); // unlock/import detached ruleset second time
+     @detached();
+  }

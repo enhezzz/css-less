@@ -1,0 +1,5 @@
+.mixin (@a; @b: 0) when (isnumber(@b)) { line-height: @b }
+.mixin (@a; @b: black) when (iscolor(@b)) { color: @b }
+div{
+    .mixin(1)
+}

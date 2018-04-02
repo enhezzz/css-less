@@ -1,0 +1,36 @@
+// Variables
+@my-selector: banner;
+
+// Usage
+.@{my-selector} {
+  font-weight: bold;
+  line-height: 40px;
+  margin: 0 auto;
+}
+
+@images: "../img";
+
+// Usage
+body {
+  color: #444;
+  background: url("@{images}/white-sand.png");
+}
+
+
+
+.widget {
+    @property: color;
+  @{property}: #0ee;
+  background-@{property}: #999;
+}
+
+@var: 0;
+.class {
+  @var: 1;
+  .brass {
+    @var: 2;
+    three: @var;
+    @var: 3;
+  }
+  one: @var;
+}

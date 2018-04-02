@@ -1,0 +1,33 @@
+// // declare detached ruleset
+// @detached-ruleset: { background: red; };
+
+// // use detached ruleset
+// .top {
+//     @detached-ruleset(); 
+// }
+
+
+// @my-ruleset: {
+//     .my-selector {
+//       @media tv {
+//         background-color: black;
+//       }
+//     }
+//   };
+// @media (orientation:portrait) {
+//     @my-ruleset();
+// }
+
+// // detached ruleset with a mixin
+// @detached-ruleset: { 
+//     .mixin() {
+//         color:blue;
+//     }
+// };
+// // call detached ruleset
+// .caller {
+//     @detached-ruleset(); 
+//     .mixin();
+// }
+
+

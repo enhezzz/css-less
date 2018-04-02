@@ -1,0 +1,8 @@
+.truth (@a) when (@a) { color: white}
+.truth (@a) when (@a = true) {color: black }
+// .class {
+//     .truth(40); // Will not match any of the above definitions.
+//   }
+.class {
+    .truth(true); // Will not match any of the above definitions.
+  }
