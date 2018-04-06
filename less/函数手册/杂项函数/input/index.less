@@ -37,6 +37,11 @@
 //     bar: default(42);
 //   }
 
-  div {
-    background-image: svg-gradient(to right, red, green 30%, blue);
-  }
+  // div {
+  //   background-image: svg-gradient(to right, red, green 30%, blue);
+  // }
+
+  @color: white;
+div{
+  @{color}:black
+}
