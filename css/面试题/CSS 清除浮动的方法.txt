@@ -1,0 +1,72 @@
+1）添加额外标签
+
+这是在学校老师就告诉我们的 一种方法，通过在浮动元素末尾添加一个空的标签例如 <div style=”clear:both”></div>，其他标签br等亦可。
+
+
+<div class="main left">.main{float:left;}</div>
+<div class="side left">.side{float:right;}</div>
+<div style="clear:both;"></div>
+</div>
+<div class="footer">.footer</div>
+　
+
+优点：通俗易懂，容易掌握
+
+缺点：可以想象通过此方法，会添加多少无意义的空标签，有违结构与表现的分离，在后期维护中将是噩梦，这是坚决不能忍受的，所以你看了这篇文章之后还是建议不要用了吧。
+
+ 
+
+ 2)父元素设置 overflow：hidden
+
+通过设置父元素overflow值设置为hidden；在IE6中还需要触发 hasLayout ，例如 zoom：1；
+
+
+<div class="wrap" id="float3" style="overflow:hidden; *zoom:1;">
+<h2>3)父元素设置 overflow </h2>
+<div class="main left">.main{float:left;}</div>
+<div class="side left">.side{float:right;}</div>
+</div>
+<div class="footer">.footer</div>
+
+
+ 
+
+优点：不存在结构和语义化问题，代码量极少
+
+缺点：内容增多时候容易造成不会自动换行导致内容被隐藏掉，无法显示需要溢出的元素；04年POPO就发现overflow:hidden会导致中键失效，这是我作为一个多标签浏览控所不能接受的。所以还是不要使用.
+
+3）父元素也设置浮动
+
+优点：不存在结构和语义化问题，代码量极少
+
+缺点：使得与父元素相邻的元素的布局会受到影响，不可能一直浮动到body，不推荐使用
+
+上面的几种方法都有各种各样的问题，下面的推荐方法：
+4）使用:after 伪元素
+
+需要注意的是 :after是伪元素（Pseudo-Element），不是伪类（某些CSS手册里面称之为“伪对象”）.
+
+由于IE6-7不支持:after，使用 zoom:1触发 hasLayout。
+
+ 该方法源自于: How To Clear Floats Without Structural Markup
+
+原文全部代码如下:
+
+<style type="text/css">
+ .clearfix:after {  content: "."; display: block; height: 0; clear: both; visibility: hidden;  }  
+.clearfix {display: inline-block;}  /* for IE/Mac */  
+</style>
+<!--[if IE]>
+ <style type="text/css">
+ .clearfix {zoom: 1;/* triggers hasLayout */  display: block;/* resets display for IE/Win */} </style>
+  <![endif]-->
+ 鉴于 IE/Mac的市场占有率极低,我们直接忽略掉,最后精简的代码如下:
+ .clearfix:after {content:"."; display:block; height:0; visibility:hidden; clear:both; }
+.clearfix { *zoom:1; }
+
+
+
+通过增加before即可避免浏览器顶部崩溃，是一种推荐大家使用的方法！
+5）zoom：1 触发IE hasLayout。
+
+通过分析发现，除了clear：both用来闭合浮动的，其他代码无非都是为了隐藏掉content生成的内容，这也就是其他版本的闭合浮动为什么会有font-size：0，line-height：0。

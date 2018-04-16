@@ -1,0 +1,2 @@
+对于行内元素来说margin只有margin-left和margin-right有效,padding只有padding-left和padding-right有效，《css权威指南》上有写
+(实验结果是padding在top和bottom上也有效，但是top上的实际值大小取决于距离父元素margin-top的值)
