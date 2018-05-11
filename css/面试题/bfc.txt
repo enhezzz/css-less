@@ -1,0 +1,2 @@
+
+BFC(Block Formatting Context)是Web页面中盒模型布局的CSS渲染模式。它的定位体系属于常规文档流。
