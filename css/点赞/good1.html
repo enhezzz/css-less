@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container{
+            height: 300px;
+            margin: 100px auto;
+            border: 1px dashed pink;
+            white-space: unset;
+            text-align: center;
+            background: pink
+        }
+        .container::before{
+            content: '';
+            height: 100%;
+            display: inline-block;
+            vertical-align: middle
+        }
+        .container>.love{
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 66px;
+            color: #fff;
+            cursor: pointer
+        }
+        .container>.love:hover{
+            animation: love 1s linear infinite
+        }
+        @keyframes love{
+            50%{
+                transform: scale(1.1,1.1)
+            }
+        }
+        .loving{
+            color: red !important
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="love">❤</span>
+    </div>
+</body>
+<script>
+    let love = document.querySelector('.container>.love');
+    love.addEventListener('click',function(){
+        this.classList.toggle('loving')
+    })
+</script>
+</html>
