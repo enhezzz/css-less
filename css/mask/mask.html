@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .mask {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgb(0, 0, 0);
+            /* visibility: hidden; */
+            opacity: 0;
+            transition: all .7s ease-out;
+        }
+
+        .mask-active {
+            opacity: 0.6;
+            /* visibility: visible */
+        }
+
+        .content {
+            padding: 10px;
+            width: 400px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0) rotate(0);
+            background-color: pink;
+            transition: all .7s cubic-bezier(.46, .13, .29, .77)
+        }
+
+        .zoom {
+            transform: translate(-50%, -50%) scale(1) rotate(0deg)
+        }
+
+        .newspaper {
+            transform: translate(-50%, -50%) scale(1) rotate(-720deg)
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="ul">
+        <li>
+            <a href="javascript:;" data-animation="zoom">zoom</a>
+        </li>
+        <li>
+            <a href="javascript:;" data-animation="newspaper">newspaper</a>
+        </li>
+        <li>
+            <a href="javascript:;" data-animation="horizontal">horizontal move</a>
+        </li>
+        <li>
+            <a href="javascript:;" data-animation="dropdown">move from top</a>
+        </li>
+        <li>
+            <a href="javascript:;" data-animation="unfold">3d unfold</a>
+        </li>
+        <li>
+            <a href="javascript:;" data-animation="zoom-out">zoom out</a>
+        </li>
+    </ul>
+
+    <div class="content">
+        You may put any HTML here. This is dummy copy. It is not meant to be read. It has been placed here solely to
+        demonstrate the look and feel of finished, typeset text. Only for show. He who searches for meaning here will
+        be sorely disappointed.
+    </div>
+
+</body>
+<script>
+    let ul = document.querySelector('#ul');
+    ul.addEventListener('click', function (e) {
+        e = e || window.event;
+        let target = e.srcElement || e.target;
+        let type = target.dataset['animation'];
+        handler.call(target, type)
+    })
+    let content = document.querySelector('.content');
+    function handler(type) {
+        let mask = document.createElement('div');
+        mask.className = 'mask';
+        document.body.insertBefore(mask, ul)
+        mask.addEventListener('click', function (e) {
+            mask.classList.remove('mask-active');
+            content.className = 'content';
+            setTimeout(() => {
+                document.body.removeChild(mask)
+            }, 700);
+
+
+        })
+        switch (type) {
+            case 'zoom':
+            case 'newspaper': {
+                setTimeout(() => {
+                    content.classList.add(type);
+                    mask.classList.add('mask-active');
+                }, 0);
+                break;
+            }
+        }
+    }
+
+</script>
+
+</html>
