@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+            margin: 100px auto;
+            width: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap
+        }
+
+        .container>.button {
+            box-sizing: border-box;
+            margin: 10px 20px;
+            width: 150px;
+            height: 150px;
+            background: #3498DB;
+            color: #fff;
+            font-size: 21px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border: 0 solid #fff;
+            transition: all .2s linear
+        }
+        .container>.highlight{
+            color: #3498DB;
+            background: #fff;
+        }
+        .container>.fade{
+            opacity: 0
+        }
+        .container>.boom{
+            transform: scale(1.4);
+            opacity: 0;
+        }
+        .container>.focus{
+            border: 40px solid #fff
+        }
+        .container>.rotate{
+            transform: rotate(90deg)
+        }
+        .container>.knit{
+            height: 0;
+        }
+        .container>.shrink{
+            transform: scale(0);
+        }
+        .container>.squeeze{
+            transform: scale(1.5,0)
+        }
+        .container>.deform{
+            transform: skew(45deg,45deg)
+        }
+        .contai
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="javascript:;" class="button" data-transition="highlight">highlight</a>
+        <a href="javascript:;" class="button" data-transition="fade">fade</a>
+        <a href="javascript:;" class="button" data-transition="boom">boom</a>
+        <a href="javascript:;" class="button" data-transition="focus">focus</a>
+        <a href="javascript:;" class="button" data-transition="rotate">rotate</a>
+        <a href="javascript:;" class="button" data-transition="knit">knit</a>
+        <a href="javascript:;" class="button" data-transition="shrink">shrink    </a>
+        <a href="javascript:;" class="button" data-transition="squeeze">squeeze</a>
+        <a href="javascript:;" class="button" data-transition="deform">deform</a>
+    </div>
+</body>
+<script>
+    // let container = document.querySelector('.container');
+    // container.addEventListener('mouseenter',function(e){
+    //     e = e || window.event;
+    //     let target = e.srcElement || e.target;
+    //     if(target.tagName == 'a'){
+    //         let transition = target.dataset['transition'];
+    //         target.classList.add(transition)
+    //     }
+    // });
+    let buttons = document.querySelectorAll('.container>.button');
+    for(var i = 0;i<buttons.length;i++){
+        buttons[i].addEventListener('mouseenter',function(e){
+            e = e || window.event;
+            let target = e.srcElement || e.target;
+            let transition = target.dataset['transition'];
+            this.classList.add(transition);
+        })
+        buttons[i].addEventListener('mouseleave',function(e){
+            e = e || window.event;
+            let target = e.srcElement || e.target;
+            let transition = target.dataset['transition'];
+            this.classList.remove(transition);
+        })
+    }
+</script>
+</html>
