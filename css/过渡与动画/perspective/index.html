@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container{
+            margin: 100px auto;
+        }
+        .container>.outer{
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            position: relative;
+            perspective: 10000px;
+            perspective-origin: center;
+            transform-style: preserve-3d;
+            transform: rotate3d(1,1,1,0deg);
+            transition: transform 1s ease-out
+        }   
+        .container>.outer:hover{
+            transform: rotate3d(0,1,1,360deg)
+        }   
+        .face{
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          line-height: 200px;
+          text-align: center;
+          opacity: .5;
+          color: #fff;
+          /* backface-visibility:hidden;    */
+        }
+        .front-face{
+            transform: translate3d(0,0,100px);
+            background: yellow
+        }
+        .back-face{
+            transform: translate3d(0,0,-100px);
+            background: pink
+        }
+        .left-face{
+            transform: translate3d(-100px,0,0) rotate3d(0,-1,0,-90deg) ;
+            background: red
+        }
+        .right-face{
+            transform: translate3d(100px,0,0) rotate3d(0,1,0,90deg) ;
+            background: blue
+        }
+        .top-face{
+            transform: rotate3d(1,0,0,90deg) translate3d(0,0,100px);
+            background: green
+        }
+        .bottom-face{
+            transform: rotate3d(1,0,0,-90deg) translate3d(0,0,100px);
+            background: black
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="outer">
+            <div class="face front-face">front</div>
+            <div class="face back-face">back</div>
+            <div class="face left-face">left</div>
+            <div class="face right-face">right</div>
+            <div class="face top-face">top</div>
+            <div class="face bottom-face">bottom</div>
+        </div>
+    </div>
+</body>
+</html>
