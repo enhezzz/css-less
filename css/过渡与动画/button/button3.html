@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+            margin: 50px;
+        }
+
+        .container h1 {
+            padding: 20px;
+            border-bottom: 2px solid #aaa;
+            margin: 0
+        }
+
+        .container>.row>.button-wrap {
+            /* padding: 20px; */
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap
+        }
+
+        .container>.row>.button-wrap>.button-item {
+            padding: 20px 40px
+        }
+
+        .container>.row>.button-wrap>.button-item>.button {
+            display: block;
+            width: 100px;
+            height: 50px;
+            border-radius: 5px;
+            border: none;
+            background: pink;
+            cursor: pointer;
+        }
+
+        .container>.row>.button-wrap>.button-item>.desc {
+            display: block;
+            margin-top: 5px;
+            text-align: center
+        }
+
+        .bounce:hover {
+            animation: bounce .7s linear 1
+        }
+
+        @keyframes bounce {
+            40% {
+                transform: translate3d(0, -20px, 0)
+            }
+
+            60% {
+                transform: translate3d(0, 0, 0)
+            }
+
+            90% {
+                transform: translate3d(0, -10px, 0)
+            }
+
+            100% {
+                transform: translate3d(0, 0, 0)
+            }
+        }
+
+        .flash:hover {
+            animation: flash .7s linear 1
+        }
+
+        @keyframes flash {
+            25% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            75% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .pulse:hover {
+            animation: pulse 1s ease 1
+        }
+
+        @keyframes pulse {
+            50% {
+                transform: scale(1.1, 1.1)
+            }
+
+            100% {
+                transform: scale(1, 1)
+            }
+        }
+
+        .rubberBand:hover {
+            animation: rubberBand .5s linear 1
+        }
+
+        @keyframes rubberBand {
+            50% {
+                transform: scale(1.1, .9)
+            }
+
+            75% {
+                transform: scale(.9, 1.1)
+            }
+
+            90% {
+                transform: scale(1, .8)
+            }
+
+            96% {
+                transform: scale(1, 1.1)
+            }
+
+            100% {
+                transform: scale(1, 1)
+            }
+        }
+
+        .shake:hover {
+            animation: shake .6s linear 1
+        }
+
+        @keyframes shake {
+            10% {
+                transform: translate3d(-10px, 0, 0)
+            }
+
+            20% {
+                transform: translate3d(0, 0, 0)
+            }
+
+            30% {
+                transform: translate3d(10px, 0, 0)
+            }
+
+            40% {
+                transform: translate3d(0, 0, 0)
+            }
+
+            50% {
+                transform: translate3d(-10px, 0, 0)
+            }
+
+            60% {
+                transform: translate3d(0, 0, 0)
+            }
+
+            70% {
+                transform: translate3d(10px, 0, 0)
+            }
+
+            80% {
+                transform: translate3d(0, 0, 0)
+            }
+
+            90% {
+                transform: translate3d(-10px, 0, 0)
+            }
+
+            190% {
+                transform: translate3d(0, 0, 0)
+            }
+        }
+
+        .swing:hover {
+            transform-origin: 50% 0;
+            animation: swing 1s linear 1
+        }
+
+        @keyframes swing {
+            10% {
+                transform: rotate3d(0, 0, 1, 30deg)
+            }
+
+            20% {
+                transform: rotate3d(0, 0, 0, 0deg)
+            }
+
+            30% {
+                transform: rotate3d(0, 0, 1, -30deg)
+            }
+
+            40% {
+                transform: rotate3d(0, 0, 0, 0deg)
+            }
+
+            50% {
+                transform: rotate3d(0, 0, 1, 20deg)
+            }
+
+            60% {
+                transform: rotate3d(0, 0, 0, 0deg)
+            }
+
+            70% {
+                transform: rotate3d(0, 0, 1, -20deg)
+            }
+
+            80% {
+                transform: rotate3d(0, 0, 0, 0deg)
+            }
+
+            85% {
+                transform: rotate3d(0, 0, 1, 5deg)
+            }
+
+            90% {
+                transform: rotate3d(0, 0, 0, 0deg)
+            }
+
+            95% {
+                transform: rotate3d(0, 0, 1, -5deg)
+            }
+
+            100% {
+                transform: rotate3d(0, 0, 0, 0deg)
+            }
+
+        }
+
+        .tada:hover {
+            animation: tada 1s linear 1
+        }
+
+        @keyframes tada {
+            0% {
+                transform: scale3d(1, 1, 1)
+            }
+
+            10%,
+            20% {
+                transform: scale3d(.9, .9, 1) rotate3d(0, 0, 1, -3deg)
+            }
+
+            30%,
+            50%,
+            70%,
+            90% {
+                transform: rotate3d(0, 0, 1, 3deg)
+            }
+
+            40%,
+            60%,
+            80% {
+                transform: rotate3d(0, 0, 1, -3deg)
+            }
+
+            100% {
+                transform: rotate3d(0, 0, 0, 0deg)
+            }
+        }
+
+        .wobble:hover {
+            animation: wobble .7s linear 1;
+            transform-origin: 50% 50%
+        }
+
+        @keyframes wobble {
+            10% {
+                transform: translate3d(-20px, 0, 0) rotate3d(0, 0, 1, -10deg)
+            }
+
+            20% {
+                transform: translate3d(0, 0, 0) rotate3d(0, 0, 0, 0deg)
+            }
+
+            30% {
+                transform: translate3d(20px, 0, 0) rotate3d(0, 0, 1, 10deg)
+            }
+
+            40% {
+                transform: translate3d(0, 0, 0) rotate3d(0, 0, 0, 0deg)
+            }
+
+            55% {
+                transform: translate3d(-10px, 0, 0) rotate3d(0, 0, 1, -5deg)
+            }
+
+            70% {
+                transform: translate3d(0, 0, 0) rotate3d(0, 0, 0, 0deg)
+            }
+
+            85% {
+                transform: translate3d(10px, 0, 0) rotate3d(0, 0, 1, 5deg)
+            }
+
+            100% {
+                transform: translate3d(0, 0, 0) rotate3d(0, 0, 0, 0deg)
+            }
+        }
+
+        .bounceIn:hover {
+            animation: bounceIn .6s ease-out 1;
+        }
+
+        @keyframes bounceIn {
+            30% {
+                transform: scale3d(1.1, 1.1, 1)
+            }
+
+            70% {
+                transform: scale3d(.8, .8, 1)
+            }
+
+            100% {
+                transform: scale3d(1, 1, 1dd)
+            }
+        }
+
+        .bounceInDown {
+            transform: translate3d(0, 0, 0)
+        }
+
+        .bounceInDown:hover {
+            animation: bounceInDown 1s  1;
+            animation-fill-mode: both;
+        }
+
+        @keyframes bounceInDown {   
+            0% {
+                transform: translate3d(0, -300px, 0)
+            }
+
+            50% {
+                transform: translate3d(0, 60px, 0)
+            }
+
+            80% {
+                transform: translate3d(0, -40px, 0)
+            }
+
+            100% {
+                transform: translate3d(0, 0, 0)
+            }
+        }
+
+        .bounceInLeft:hover {
+            animation: bounceInLeft 1s linear 1 both;
+        }
+
+        @keyframes bounceInLeft {
+
+            0%,
+            100%,
+            60%,
+            75%,
+            90% {
+                -webkit-transition-timing-function: cubic-bezier(0.215, .61, .355, 1);
+                transition-timing-function: cubic-bezier(0.215, .61, .355, 1)
+            }
+
+            0% {
+                opacity: 0;
+                -webkit-transform: translate3d(-3000px, 0, 0);
+                -ms-transform: translate3d(-3000px, 0, 0);
+                transform: translate3d(-3000px, 0, 0)
+            }
+
+            60% {
+                opacity: 1;
+                -webkit-transform: translate3d(25px, 0, 0);
+                -ms-transform: translate3d(25px, 0, 0);
+                transform: translate3d(25px, 0, 0)
+            }
+
+            75% {
+                -webkit-transform: translate3d(-10px, 0, 0);
+                -ms-transform: translate3d(-10px, 0, 0);
+                transform: translate3d(-10px, 0, 0)
+            }
+
+            90% {
+                -webkit-transform: translate3d(5px, 0, 0);
+                -ms-transform: translate3d(5px, 0, 0);
+                transform: translate3d(5px, 0, 0)
+            }
+
+            100% {
+                -webkit-transform: none;
+                -ms-transform: none;
+                transform: none
+            }
+        }
+
+        .bounceOut:hover {
+            animation: bounceOut 1s ease-in 1
+        }
+
+        @keyframes bounceOut {
+            30% {
+                transform: scale(.8, .8);
+                opacity: .7;
+            }
+
+            50% {
+                transform: scale(1, 1);
+                opacity: 1;
+            }
+
+            60% {
+                transform: scale(1.1, 1.1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(0, 0);
+                opacity: 0;
+            }
+        }
+
+        .bounceOutDown-exit:hover {
+            animation: bounceOutDown-exit 1s ease-in 1
+        }
+
+        @keyframes bounceOutDown-exit {
+            30% {
+                transform: translate3d(0, -20px, 0);
+                opacity: .7;
+            }
+
+            100% {
+                transform: translate3d(0, 1000px, 0);
+                opacity: 0;
+            }
+        }
+
+        .bounceOutLeft-exit:hover {
+            animation: bounceOutLeft-exit 1s ease-in 1
+        }
+
+        @keyframes bounceOutLeft-exit {
+            30% {
+                transform: translate3d(20px, 0, 0);
+                opacity: .7;
+            }
+
+            100% {
+                transform: translate3d(-1000px, 0, 0);
+                opacity: 0;
+            }
+        }
+
+        .bounceOutRight-exit:hover {
+            animation: bounceOutRight-exit 1s ease-in 1
+        }
+
+        @keyframes bounceOutRight-exit {
+            30% {
+                transform: translate3d(-20px, 0, 0);
+                opacity: .7;
+            }
+
+            100% {
+                transform: translate3d(1000px, 0, 0);
+                opacity: 0;
+            }
+        }
+
+        .bounceOutUp-exit:hover {
+            animation: bounceOutUp-exit 1s ease-in 1
+        }
+
+        @keyframes bounceOutUp-exit {
+            30% {
+                transform: translate3d(0, 20px, 0);
+                opacity: .7;
+            }
+
+            100% {
+                transform: translate3d(0, -1000px, 0);
+                opacity: 0;
+            }
+        }
+
+        .fadeIn:hover {
+            animation: fadeIn .5s linear 1
+        }
+
+        @keyframes fadeIn {
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1
+            }
+        }
+
+        .fadeInDown:hover {
+            animation: fadeInDown .7s ease-out 1
+        }
+
+        @keyframes fadeInDown {
+            0% {
+                transform: translate3d(0, 100px, 0);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translate3d(0, 0, 0);
+                opacity: 1;
+            }
+        }
+
+        .fadeOut:hover {
+            animation: fadeOut 1s ease-out 1
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+            }
+        }
+
+        .flip:hover {
+            animation: flip 1s ease-out 1
+        }
+
+        @keyframes flip {
+            50% {
+                transform: rotate3d(0, 1, 0, 180deg) scale3d(1.4, 1.4, 1)
+            }
+
+            100% {
+                transform: rotate3d(0, 1, 0, 360deg) scale3d(1, 1, 1)
+            }
+        }
+
+        .flipInX:hover {
+            animation: flipInX .7s ease-out 1
+        }
+
+        @keyframes flipInX {
+            40% {
+                transform: rotate3d(1, 0, 0, -30deg)
+            }
+
+            100% {
+                transform: rotate3d(0, 0, 0, 30deg)
+            }
+
+            /* 100%{
+                transform: rotate3d(0,0,0,0deg)
+            } */
+        }
+
+        .flipInY:hover {
+            animation: flipInY .6s linear 1
+        }
+
+        @keyframes flipInY {
+            50% {
+                transform: rotate3d(0, 1, 0, -20deg)
+            }
+
+            80% {
+                transform: rotate3d(0, 1, 0, 20deg)
+            }
+
+            100% {
+                transform: rotate3d(0, 0, 0, 0deg)
+            }
+        }
+
+        .flipOutX:hover {
+            animation: flipOutX .7s ease-in-out 1
+        }
+
+        @keyframes flipOutX {
+            20% {
+                transform: rotate3d(1, 0, 0, -40deg);
+                opacity: 1;
+            }
+
+            80% {
+                transform: rotate3d(1, 0, 0, 70deg);
+                opacity: .3
+            }
+
+            100% {
+                transform: rotate3d(1, 0, 0, 90deg);
+                opacity: 0
+            }
+        }
+
+        .flipOutY:hover {
+            animation: flipOutY .7s ease-in-out 1
+        }
+
+        @keyframes flipOutY {
+            20% {
+                transform: rotate3d(0, 1, 0, -40deg);
+                opacity: 1;
+            }
+
+            80% {
+                transform: rotate3d(0, 1, 0, 70deg);
+                opacity: .3
+            }
+
+            100% {
+                transform: rotate3d(0, 1, 0, 90deg);
+                opacity: 0
+            }
+        }
+
+        .lightSpeedOut:hover {
+            animation: lightSpeedOut 1s ease-out 1
+        }
+
+        @keyframes lightSpeedOut {
+            to {
+                transform: skew(45deg, 0) translate3d(150px, 0, 0);
+                opacity: 0;
+            }
+        }
+
+        .rotateDownLeft {
+            transform-origin: 0 100%;
+        }
+
+        .rotateDownLeft:hover {
+            animation: rotateDownLeft 1s ease-out 1
+        }
+
+        @keyframes rotateDownLeft {
+            0% {
+                transform: rotate3d(0, 0, 0, 0deg)
+            }
+
+            10% {
+                transform: rotate3d(0, 0, 1, -30deg)
+            }
+
+            100% {
+                transform: rotate3d(0, 0, 0, 0deg)
+            }
+        }
+
+        .rotateOutDownLeft {
+            transform-origin: 0 100%;
+        }
+
+        .rotateOutDownLeft:hover {
+            animation: rotateOutDownLeft 1s ease-out 1
+        }
+
+        @keyframes rotateOutDownLeft {
+            to {
+                transform: rotate3d(0, 0, 1, 45deg);
+                opacity: 0;
+            }
+        }
+
+        .hinge {
+            transform-origin: 0% 0%
+        }
+
+        .hinge:hover {
+            animation: hinge 2s ease 1;
+            /* animation-fill-mode: both; */
+        }
+
+        @keyframes hinge {
+
+            30%,
+            60%,
+            90% {
+                transform: rotate3d(0, 0, 1, 60deg);
+            }
+
+            45%,
+            75% {
+                transform: rotate3d(0, 0, 1, 40deg)
+            }
+
+            100% {
+                transform: rotate3d(0,0,0,0deg) translate3d(0,500px,0);
+            }
+        }
+
+        .rollOut:hover {
+            animation: rollOut 1s ease 1
+        }
+
+        @keyframes rollOut {
+            100% {
+                transform: translate3d(150px, 0, 0) rotate3d(0, 0, 1, 120deg);
+                opacity: 0;
+            }
+        }
+        .zoomOut:hover{
+            animation: zoomOut 1s ease-out 1
+        }
+        @keyframes zoomOut{
+            to{
+                transform: scale3d(.3,.3,1);
+                opacity: 0;
+            }
+        }
+        .zoomOutDown:hover{
+            animation: zoomOutDown 1s 1
+        }
+        @keyframes zoomOutDown{
+            40% {
+                opacity: 1;
+                -webkit-transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+                transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+                -webkit-animation-timing-function: cubic-bezier(0.55, .055, .675, .19);
+                animation-timing-function: cubic-bezier(0.55, .055, .675, .19)
+            }
+            100% {
+                opacity: 0;
+                -webkit-transform: scale3d(.1, .1, .1) translate3d(0, 2000px, 0);
+                transform: scale3d(.1, .1, .1) translate3d(0, 2000px, 0);
+                -webkit-transform-origin: center bottom;
+                transform-origin: center bottom;
+                -webkit-animation-timing-function: cubic-bezier(0.175, .885, .32, 1);
+                animation-timing-function: cubic-bezier(.18,.89,.32,1)
+            }
+        }
+        .zoomOutLeft:hover{
+            animation: zoomOutLeft 1s 1
+        }
+        @keyframes zoomOutLeft{
+            40% {
+                opacity: 1;
+                -webkit-transform: scale3d(.475, .475, .475) translate3d(60px, 0, 0);
+                transform: scale3d(.475, .475, .475) translate3d(60px, 0, 0);
+                -webkit-animation-timing-function: cubic-bezier(0.55, .055, .675, .19);
+                animation-timing-function: cubic-bezier(0.55, .055, .675, .19)
+            }
+            100% {
+                opacity: 0;
+                -webkit-transform: scale3d(.1, .1, .1) translate3d(-2000px, 0, 0);
+                transform: scale3d(.1, .1, .1) translate3d(-2000px, 0, 0);
+                -webkit-transform-origin: center bottom;
+                transform-origin: center bottom;
+                -webkit-animation-timing-function: cubic-bezier(0.175, .885, .32, 1);
+                animation-timing-function: cubic-bezier(0.175, .885, .32, 1)
+            }
+        }
+        .zoomOutRight:hover{
+            animation: zoomOutRight 1s 1
+        }
+        @keyframes zoomOutRight{
+            40% {
+                opacity: 1;
+                -webkit-transform: scale3d(.475, .475, .475) translate3d(-60px, 0, 0);
+                transform: scale3d(.475, .475, .475) translate3d(-60px, 0, 0);
+                -webkit-animation-timing-function: cubic-bezier(0.55, .055, .675, .19);
+                animation-timing-function: cubic-bezier(0.55, .055, .675, .19)
+            }
+            100% {
+                opacity: 0;
+                -webkit-transform: scale3d(.1, .1, .1) translate3d(2000px, 0, 0);
+                transform: scale3d(.1, .1, .1) translate3d(2000px, 0, 0);
+                -webkit-transform-origin: center bottom;
+                transform-origin: center bottom;
+                -webkit-animation-timing-function: cubic-bezier(0.175, .885, .32, 1);
+                animation-timing-function: cubic-bezier(0.175, .885, .32, 1)
+            }
+        }
+        .zoomOutUp:hover{
+            animation: zoomOutUp 1s 1
+        }
+        @keyframes zoomOutUp{
+            40% {
+                opacity: 1;
+                -webkit-transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);
+                transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);
+                -webkit-animation-timing-function: cubic-bezier(0.55, .055, .675, .19);
+                animation-timing-function: cubic-bezier(0.55, .055, .675, .19)
+            }
+            100% {
+                opacity: 0;
+                -webkit-transform: scale3d(.1, .1, .1) translate3d(0, -2000px, 0);
+                transform: scale3d(.1, .1, .1) translate3d(0, -2000px, 0);
+                -webkit-transform-origin: center bottom;
+                transform-origin: center bottom;
+                -webkit-animation-timing-function: cubic-bezier(0.175, .885, .32, 1);
+                animation-timing-function: cubic-bezier(0.175, .885, .32, 1)
+            }
+        }
+        .slideOutDown:hover{
+            animation: slideOutDown 1s ease-out
+        }
+        @keyframes slideOutDown{
+            to{
+                transform: translate3d(0,100px,0);
+                opacity: 0;
+            }
+        }
+        .slideOutLeft:hover{
+            animation: slideOutLeft 1s 1
+        }
+        @keyframes slideOutLeft{
+            to{
+                transform: translate3d(-100px,0,0);
+                opacity: 0;
+            }
+        }
+        .slideOutRight:hover{
+            animation: slideOutRight 1s 1
+        }
+        @keyframes slideOutRight{
+            to{
+                transform: translate3d(100px,0,0);
+                opacity: 0;
+            }
+        }
+        .slideOutUp:hover{
+            animation: slideOutUp 1s 1
+        }
+        @keyframes slideOutUp{
+            to{
+                transform: translate3d(0,-100px,0);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>attention_seekers</h1>
+            <div class="button-wrap">
+                <div class="button-item">
+                    <button class="button bounce"></button>
+                    <span class="desc">bounce</span>
+                </div>
+                <div class="button-item">
+                    <button class="button flash"></button>
+                    <span class="desc">flash</span>
+                </div>
+                <div class="button-item">
+                    <button class="button pulse"></button>
+                    <span class="desc">pulse</span>
+                </div>
+                <div class="button-item">
+                    <button class="button rubberBand"></button>
+                    <span class="desc">rubberBand</span>
+                </div>
+                <div class="button-item">
+                    <button class="button shake"></button>
+                    <span class="desc">shake</span>
+                </div>
+                <div class="button-item">
+                    <button class="button swing"></button>
+                    <span class="desc">swing</span>
+                </div>
+                <div class="button-item">
+                    <button class="button tada"></button>
+                    <span class="desc">tada</span>
+                </div>
+                <div class="button-item">
+                    <button class="button wobble"></button>
+                    <span class="desc">wobble</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h1>bouncing_entrances</h1>
+            <div class="button-wrap">
+                <div class="button-item">
+                    <button class="button bounceIn"></button>
+                    <span class="desc">bounceIn</span>
+                </div>
+                <div class="button-item">
+                    <button class="button bounceInDown"></button>
+                    <span class="desc">bounceInDown</span>
+                </div>
+                <div class="button-item">
+                    <button class="button bounceInLeft"></button>
+                    <span class="desc">bounceInLeft</span>
+                </div>
+                <div class="button-item">
+                    <button class="button rubberBand"></button>
+                    <span class="desc">rubberBand</span>
+                </div>
+                <div class="button-item">
+                    <button class="button shake"></button>
+                    <span class="desc">shake</span>
+                </div>
+                <div class="button-item">
+                    <button class="button swing"></button>
+                    <span class="desc">swing</span>
+                </div>
+                <div class="button-item">
+                    <button class="button tada"></button>
+                    <span class="desc">tada</span>
+                </div>
+                <div class="button-item">
+                    <button class="button wobble"></button>
+                    <span class="desc">wobble</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h1>bouncing_exits</h1>
+            <div class="button-wrap">
+                <div class="button-item">
+                    <button class="button bounceOut"></button>
+                    <span class="desc">bounceOut</span>
+                </div>
+                <div class="button-item">
+                    <button class="button bounceOutDown-exit"></button>
+                    <span class="desc">bounceOutDown-exit</span>
+                </div>
+                <div class="button-item">
+                    <button class="button bounceOutLeft-exit"></button>
+                    <span class="desc">bounceOutLeft-exit</span>
+                </div>
+                <div class="button-item">
+                    <button class="button bounceOutRight-exit"></button>
+                    <span class="desc">bounceOutRight-exit</span>
+                </div>
+                <div class="button-item">
+                    <button class="button bounceOutUp-exit"></button>
+                    <span class="desc">bounceOutUp-exit</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h1>fading_entrances</h1>
+            <div class="button-wrap">
+                <div class="button-item">
+                    <button class="button fadeIn"></button>
+                    <span class="desc">fadeIn</span>
+                </div>
+                <div class="button-item">
+                    <button class="button fadeInDown"></button>
+                    <span class="desc">fadeInDown</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h1>fading_exits</h1>
+            <div class="button-wrap">
+                <div class="button-item">
+                    <button class="button fadeOut"></button>
+                    <span class="desc">fadeOut</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h1>flippers</h1>
+            <div class="button-wrap">
+                <div class="button-item" style="perspective: 1000px;">
+                    <button class="button flip"></button>
+                    <span class="desc">flip</span>
+                </div>
+                <div class="button-item" style="perspective: 550px;">
+                    <button class="button flipInX"></button>
+                    <span class="desc">flipInX</span>
+                </div>
+                <div class="button-item" style="perspective: 550px;">
+                    <button class="button flipInY"></button>
+                    <span class="desc">flipInY</span>
+                </div>
+                <div class="button-item" style="perspective: 550px;">
+                    <button class="button flipOutX"></button>
+                    <span class="desc">flipOutX</span>
+                </div>
+                <div class="button-item" style="perspective: 550px;">
+                    <button class="button flipOutY"></button>
+                    <span class="desc">flipOutY</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h1>lightspeed</h1>
+            <div class="button-wrap">
+                <div class="button-item">
+                    <button class="button lightSpeedOut"></button>
+                    <span class="desc">lightSpeedOut</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h1>rotating</h1>
+            <div class="button-wrap">
+                <div class="button-item">
+                    <button class="button rotateDownLeft"></button>
+                    <span class="desc">rotateDownLeft</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h1>rotating_exits</h1>
+            <div class="button-wrap">
+                <div class="button-item">
+                    <button class="button rotateOutDownLeft"></button>
+                    <span class="desc">rotateOutDownLeft</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h1>specials</h1>
+            <div class="button-wrap">
+                <div class="button-item">
+                    <button class="button hinge"></button>
+                    <span class="desc">hinge</span>
+                </div>
+                <div class="button-item">
+                    <button class="button rollOut"></button>
+                    <span class="desc">rollOut</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h1>zooming_exits</h1>
+            <div class="button-wrap">
+                <div class="button-item">
+                    <button class="button zoomOut"></button>
+                    <span class="desc">zoomOut</span>
+                </div>
+                <div class="button-item">
+                    <button class="button zoomOutDown"></button>
+                    <span class="desc">zoomOutDown</span>
+                </div>
+                <div class="button-item">
+                    <button class="button zoomOutLeft"></button>
+                    <span class="desc">zoomOutLeft</span>
+                </div>
+                <div class="button-item">
+                    <button class="button zoomOutRight"></button>
+                    <span class="desc">zoomOutRight</span>
+                </div>
+                <div class="button-item">
+                    <button class="button zoomOutUp"></button>
+                    <span class="desc">zoomOutUp</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h1>sliding_exits</h1>
+            <div class="button-wrap">
+                <div class="button-item">
+                    <button class="button slideOutDown"></button>
+                    <span class="desc">slideOutDown</span>
+                </div>
+                <div class="button-item">
+                    <button class="button slideOutLeft"></button>
+                    <span class="desc">slideOutLeft</span>
+                </div>
+                <div class="button-item">
+                    <button class="button slideOutRight"></button>
+                    <span class="desc">slideOutRight</span>
+                </div>
+                <div class="button-item">
+                    <button class="button slideOutUp"></button>
+                    <span class="desc">slideOutUp</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
